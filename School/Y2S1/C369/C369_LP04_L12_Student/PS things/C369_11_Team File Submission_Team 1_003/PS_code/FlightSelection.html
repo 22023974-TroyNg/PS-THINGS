@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seat Choosing Prototype</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/premium-photo/miniature-toy-airplane-colorful-paper-background_200694-69.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .seat {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+
+        .selected {
+            background-color: yellow !important;
+        }
+
+        .extra-legroom {
+            background-color: orange;
+        }
+
+        .Forward-Zone-Seat{
+            background-color: darkgreen;
+        }
+
+        .Regular-seats{
+            background-color: greenyellow;
+        }
+        .legend {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .legend span {
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+         var selectedSeats = [];
+
+function selectSeat(seatId) {
+    var seat = document.getElementById(seatId);
+
+    
+    if (seat.classList.contains("selected")) {
+        
+        var index = selectedSeats.indexOf(seatId);
+        if (index > -1) {
+            selectedSeats.splice(index, 1);
+        }
+        seat.classList.remove("selected");
+    } else {
+        seat.classList.add("selected");
+        selectedSeats.push(seatId);
+    }
+
+    
+    document.getElementById("myseat").innerHTML = selectedSeats.join(", ");
+}
+
+        window.onload = function() {
+            var seat1_1 = document.getElementById('seat1-1');
+            var seat2_1 = document.getElementById('seat2-1');
+            var seat3_1 = document.getElementById('seat3-1');
+
+            seat1_1.classList.add('extra-legroom');
+            seat2_1.classList.add('extra-legroom');
+            seat3_1.classList.add('extra-legroom');
+        };
+    </script>
+</head>
+<body>
+    <h1>Flight for TR 173</h1>
+    <p>Select a seat: <span id="myseat"></span></p>
+    <h2>
+        <span style="color: darkmagenta;">LEGEND</span>
+    </h2>
+    <div>
+        <div class="legend">
+            <span style="color: orange;">Extra Legroom</span> - Seats with extra legroom
+        </div>
+        <div class="legend">
+            <span style="color: darkgreen;">Forward Zone Seat</span> - Seats in the forward zone
+        </div>
+        <div class="legend">
+            <span style="color: greenyellow;">Standard seat</span> - Regular seats
+        </div>
+        <div class ="legend">
+            <span style="color: yellow;">Selected seat</span> - Seats that are selected by you
+        </div>
+    <div>
+        <div class="row">
+            <div id="seat1-1" class="seat extra-legroom" onclick="selectSeat('seat1-1')"></div>
+            <div id="seat1-2" class="seat Forward-Zone-Seat" onclick="selectSeat('seat1-2')"></div>
+            <div id="seat1-3" class="seat Forward-Zone-Seat" onclick="selectSeat('seat1-3')"></div>
+            <div id="seat1-4" class="seat Forward-Zone-Seat" onclick="selectSeat('seat1-4')"></div>
+            <div id="seat1-5" class="seat Forward-Zone-Seat" onclick="selectSeat('seat1-5')"></div>
+            <div id="seat1-6" class="seat Regular-seats" onclick="selectSeat('seat1-6')"></div>
+            <div id="seat1-7" class="seat Regular-seats" onclick="selectSeat('seat1-7')"></div>
+            <div id="seat1-8" class="seat Regular-seats" onclick="selectSeat('seat1-8')"></div>
+            <div id="seat1-9" class="seat Regular-seats" onclick="selectSeat('seat1-9')"></div>
+            <div id="seat1-10" class="seat Regular-seats" onclick="selectSeat('seat1-10')"></div>
+        </div>
+        <div class="row">
+            <div id="seat2-1" class="seat extra-legroom" onclick="selectSeat('seat2-1')"></div>
+            <div id="seat2-2" class="seat Forward-Zone-Seat" onclick="selectSeat('seat2-2')"></div>
+            <div id="seat2-3" class="seat Forward-Zone-Seat" onclick="selectSeat('seat2-3')"></div>
+            <div id="seat2-4" class="seat Forward-Zone-Seat" onclick="selectSeat('seat2-4')"></div>
+            <div id="seat2-5" class="seat Forward-Zone-Seat" onclick="selectSeat('seat2-5')"></div>
+            <div id="seat2-6" class="seat Regular-seats" onclick="selectSeat('seat2-6')"></div>
+            <div id="seat2-7" class="seat Regular-seats" onclick="selectSeat('seat2-7')"></div>
+            <div id="seat2-8" class="seat Regular-seats" onclick="selectSeat('seat2-8')"></div>
+            <div id="seat2-9" class="seat Regular-seats" onclick="selectSeat('seat2-9')"></div>
+            <div id="seat2-10" class="seat Regular-seats" onclick="selectSeat('seat2-10')"></div>
+        </div>
+        <div class="row">
+            <div id="seat3-1" class="seat extra-legroom" onclick="selectSeat('seat3-1')"></div>
+            <div id="seat3-2" class="seat Forward-Zone-Seat" onclick="selectSeat('seat3-2')"></div>
+            <div id="seat3-3" class="seat Forward-Zone-Seat" onclick="selectSeat('seat3-3')"></div>
+            <div id="seat3-4" class="seat Forward-Zone-Seat" onclick="selectSeat('seat3-4')"></div>
+            <div id="seat3-5" class="seat Forward-Zone-Seat" onclick="selectSeat('seat3-5')"></div>
+            <div id="seat3-6" class="seat Regular-seats" onclick="selectSeat('seat3-6')"></div>
+            <div id="seat3-7" class="seat Regular-seats" onclick="selectSeat('seat3-7')"></div>
+            <div id="seat3-8" class="seat Regular-seats" onclick="selectSeat('seat3-8')"></div>
+            <div id="seat3-9" class="seat Regular-seats" onclick="selectSeat('seat3-9')"></div>
+            <div id="seat3-10" class="seat Regular-seats" onclick="selectSeat('seat3-10')"></div>
+        </div>
+    </div>
+    <button onclick="window.location.href='Payment2.0.html'">Click to pay</button>
+</body>
+</html>
